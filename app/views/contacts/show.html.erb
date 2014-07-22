@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Phone:</strong>
+  <%= @contact.phone %>
+</p>
+
+<%= link_to 'Edit', edit_agent_contact_path(@agent,@contact) %> |
+<%= link_to 'Back', agent_path(@agent) %>

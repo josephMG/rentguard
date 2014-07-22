@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @agent.name %>
+</p>
+
+<p>contacts</p>
+
+<%= link_to 'New contact', new_agent_contact_path(@agent) %>
+<table>
+  <thead>
+    <tr>
+      <th>desciption</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.description %></td>
+        <td><%= link_to 'Show', agent_contact_path(@agent,contact) %></td>
+        <td><%= link_to 'Edit', edit_agent_contact_path(@agent,contact) %></td>
+        <td><%= link_to 'Destroy',  agent_contact_path(@agent,contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<%= link_to 'Edit', edit_agent_path(@agent) %> |
+<%= link_to 'Back', agents_path %>

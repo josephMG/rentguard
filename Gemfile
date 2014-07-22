@@ -37,4 +37,14 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
+gem "compass-rails"
+gem 'uglifier', '>= 1.3.0'
+gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
+group :development do
+    gem 'rails_layout'
+end
+
 
