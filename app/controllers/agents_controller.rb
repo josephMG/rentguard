@@ -26,9 +26,10 @@ class AgentsController < ApplicationController
   # POST /agents.json
   def create
     @agent = Agent.new(agent_params)
-
     respond_to do |format|
       if @agent.save
+        insert_contact
+        #@agent.contacts << @agent.contact
         format.html { redirect_to @agent, notice: 'Agent was successfully created.' }
         format.json { render :show, status: :created, location: @agent }
       else
@@ -43,6 +44,7 @@ class AgentsController < ApplicationController
   def update
     respond_to do |format|
       if @agent.update(agent_params)
+        insert_contact
         format.html { redirect_to @agent, notice: 'Agent was successfully updated.' }
         format.json { render :show, status: :ok, location: @agent }
       else
@@ -67,7 +69,20 @@ class AgentsController < ApplicationController
     def set_agent
       @agent = Agent.find(params[:id])
     end
+    def insert_contact
+      contact= params.require(:agent).permit(:contact_attributes => [:phone])
+      contact=contact[:contact_attributes]
+      if @agent.contacts.where(:phone => contact["phone"]).empty?
+        contact=@agent.build_contact(contact)
+        contact.save
+        @agent.save
+        @agent.contacts << @agent.contact
+      else
+        @agent.contact=@agent.contacts.where(:phone => contact["phone"]).first
+        @agent.save
+      end
 
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def agent_params
       params.require(:agent).permit(:name)

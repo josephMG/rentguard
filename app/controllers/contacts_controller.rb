@@ -39,6 +39,10 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    if @contact==@agent.contact
+      @agent.contact=nil
+      @agent.save
+    end
     @contact.destroy
     respond_to do |format|
       format.html { redirect_to agent_url(@agent), notice: 'Contact was successfully destroyed.' }

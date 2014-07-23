@@ -4,6 +4,10 @@
   <strong>Name:</strong>
   <%= @agent.name %>
 </p>
+<p>
+  <strong>Default contact:</strong>
+  <%= @agent.contact.phone %>
+</p>
 
 <p>contacts</p>
 
@@ -11,7 +15,7 @@
 <table>
   <thead>
     <tr>
-      <th>desciption</th>
+      <th>phone</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +23,7 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.description %></td>
+        <td><%= contact.phone %></td>
         <td><%= link_to 'Show', agent_contact_path(@agent,contact) %></td>
         <td><%= link_to 'Edit', edit_agent_contact_path(@agent,contact) %></td>
         <td><%= link_to 'Destroy',  agent_contact_path(@agent,contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>

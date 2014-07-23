@@ -4,7 +4,6 @@ class CreateContacts < ActiveRecord::Migration
       t.integer :agent_id, :unsigned => true
       t.string :phone
 
-      t.references :agents
       t.timestamps
     end
   end
