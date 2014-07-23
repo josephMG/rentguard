@@ -43,6 +43,8 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
+    email_validator (1.4.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.2.1)
     foundation-icons-sass-rails (3.0.0)
@@ -130,6 +132,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-rails
+  email_validator
   foundation-icons-sass-rails
   foundation-rails
   jbuilder (~> 2.0)

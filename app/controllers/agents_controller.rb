@@ -70,15 +70,15 @@ class AgentsController < ApplicationController
       @agent = Agent.find(params[:id])
     end
     def insert_contact
-      contact= params.require(:agent).permit(:contact_attributes => [:phone])
+      contact= params.require(:agent).permit(:contact_attributes => [:email])
       contact=contact[:contact_attributes]
-      if @agent.contacts.where(:phone => contact["phone"]).empty?
+      if @agent.contacts.where(:email => contact["email"]).empty?
         contact=@agent.build_contact(contact)
         contact.save
         @agent.save
         @agent.contacts << @agent.contact
       else
-        @agent.contact=@agent.contacts.where(:phone => contact["phone"]).first
+        @agent.contact=@agent.contacts.where(:email => contact["email"]).first
         @agent.save
       end
 

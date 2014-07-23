@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140722202657) do
 
   create_table "contacts", force: true do |t|
     t.integer  "agent_id"
-    t.string   "phone"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

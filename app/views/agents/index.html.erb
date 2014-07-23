@@ -12,9 +12,9 @@
     <% @agents.each do |agent| %>
       <tr>
         <td><%= agent.name %></td>
-        <td><%= link_to 'Show', agent %></td>
-        <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
-        <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', agent , :class => "button tiny"%></td>
+        <td><%= link_to 'Edit', edit_agent_path(agent), :class => "button tiny success" %></td>
+        <td><%= link_to 'Destroy', agent, :class => "button tiny alert", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Agent', new_agent_path %>
+<%= link_to 'New Agent', new_agent_path , :class => "button tiny"%>

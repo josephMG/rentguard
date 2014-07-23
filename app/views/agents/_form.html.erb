@@ -17,8 +17,8 @@
   </div>
   <%= f.fields_for :contact do |contact_form| %>
     <p>
-      <%= contact_form.label :phone, "Default contact" %>
-      <%= contact_form.text_field :phone %>
+      <%= contact_form.label :email, "Default contact" %>
+      <%= contact_form.email_field :email %>
     </p>
   <% end %>
   <div class="actions">

@@ -1,4 +1,4 @@
-<h1>Editing contact</h1>
+<h1>Editing email</h1>
 
 <%= form_for(@contact, :url => agent_contact_path(@agent,@contact)) do |f| %>
   <% if @contact.errors.any? %>
@@ -14,13 +14,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 
-<%= link_to 'Show', agent_contact_path(@agent,@contact) %> |
-<%= link_to 'Back', agent_path(@agent) %>
+<%= link_to 'Show', agent_contact_path(@agent,@contact) , :class => "button tiny success" %>
+<%= link_to 'Back', agent_path(@agent), :class => "button tiny"  %>

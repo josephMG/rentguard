@@ -2,9 +2,9 @@
 
 
 <p>
-  <strong>Phone:</strong>
-  <%= @contact.phone %>
+  <strong>Email:</strong>
+  <%= @contact.email %>
 </p>
 
-<%= link_to 'Edit', edit_agent_contact_path(@agent,@contact) %> |
-<%= link_to 'Back', agent_path(@agent) %>
+<%= link_to 'Edit', edit_agent_contact_path(@agent,@contact), :class => "button tiny success" %>
+<%= link_to 'Back', agent_path(@agent), :class => "button tiny" %>
