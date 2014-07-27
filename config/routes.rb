@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   resources :agents do
-    resources :contacts
+    resources :contacts do
+      member do 
+        get "set_default", :as => "set_default"
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

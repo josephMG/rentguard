@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_agent
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :set_default]
 
   def show
   end
@@ -49,7 +49,11 @@ class ContactsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def set_default
+    @agent.contact=@contact
+    @agent.save
+    redirect_to agent_url(@agent), notice: "Set default to #{@contact.email}" 
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_agent
